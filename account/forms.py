@@ -27,7 +27,23 @@ class SignupForm(forms.Form):
         label=_("Username"),
         max_length=30,
         widget=forms.TextInput(),
-        required=False
+        required=True
+    )
+    firstname = forms.CharField(
+        label=_("First Name"),
+        max_length=30,
+        widget=forms.TextInput(),
+        required=True
+    )
+    lastname = forms.CharField(
+        label=_("Last Name"),
+        max_length=30,
+        widget=forms.TextInput(),
+        required=True
+    )
+    email = forms.EmailField(
+        label=_("Email"),
+        widget=forms.TextInput(), required=True
     )
     password = forms.CharField(
         label=_("Password"),
@@ -37,9 +53,6 @@ class SignupForm(forms.Form):
         label=_("Password (again)"),
         widget=forms.PasswordInput(render_value=False)
     )
-    email = forms.EmailField(
-        label=_("Email"),
-        widget=forms.TextInput(), required=True)
 
     code = forms.CharField(
         max_length=64,

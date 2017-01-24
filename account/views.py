@@ -105,6 +105,8 @@ class SignupView(FormView):
         signals.user_sign_up_attempt.send(
             sender=SignupForm,
             username=form.data.get("username"),
+            lastname=form.data.get("lastname"),
+            firstname=form.data.get("firstname"),
             email=form.data.get("email"),
             result=form.is_valid()
         )
@@ -185,6 +187,8 @@ class SignupView(FormView):
  
         user.username = username
         user.email = form.cleaned_data["email"].strip()
+        user.first_name = form.cleaned_data.get("firstname").strip()
+        user.last_name = form.cleaned_data.get("lastname").strip()
         password = form.cleaned_data.get("password")
         if password:
             user.set_password(password)
