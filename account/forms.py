@@ -25,7 +25,7 @@ class SignupForm(forms.Form):
     
     username = forms.CharField(
         label=_("Username"),
-        max_length=30,
+        max_length=256,
         widget=forms.TextInput(),
         required=True
     )
@@ -126,7 +126,7 @@ class LoginForm(forms.Form):
 
 class LoginUsernameForm(LoginForm):
 
-    username = forms.CharField(label=_("Username"), max_length=30)
+    username = forms.CharField(label=_("Username"), max_length=256)
     authentication_fail_message = _("The username and/or password you specified are not correct.")
     identifier_field = "username"
 
@@ -240,7 +240,7 @@ class SettingsForm(forms.Form):
         
 class SignupCodeForm(forms.ModelForm):
 
-    username = forms.CharField(max_length=30, required=False)
+    username = forms.CharField(max_length=256, required=False)
     
     class Meta:
         model = SignupCode
