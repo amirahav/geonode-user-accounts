@@ -31,13 +31,13 @@ class SignupForm(forms.Form):
     )
     firstname = forms.CharField(
         label=_("First Name"),
-        max_length=30,
+        max_length=255,
         widget=forms.TextInput(),
         required=True
     )
     lastname = forms.CharField(
         label=_("Last Name"),
-        max_length=30,
+        max_length=255,
         widget=forms.TextInput(),
         required=True
     )
